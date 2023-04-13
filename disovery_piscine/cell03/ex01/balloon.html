@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Balloon Game</title>
+	<style>
+		#balloon {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			border-radius: 50%;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+
+		#balloon:hover {
+			transform: scale(0.9);
+		}
+
+		#balloon.explode {
+			animation: explode 0.5s ease forwards;
+		}
+
+		@keyframes explode {
+			0% {transform: scale(1);}
+			50% {transform: scale(2);}
+			100% {transform: scale(1);}
+		}
+	</style>
+</head>
+<body>
+	<div id="balloon"></div>
+
+	<script>
+		var balloon = document.getElementById("balloon");
+		var size = 200;
+		var color = "red";
+
+		balloon.addEventListener("click", function() {
+			if (size < 420) {
+				size += 10;
+
+				if (color == "red") {
+					color = "green";
+				} else if (color == "green") {
+					color = "blue";
+				} else if (color == "blue") {
+					color = "red";
+				}
+
+				balloon.style.backgroundColor = color;
+				balloon.style.width = size + "px";
+				balloon.style.height = size + "px";
+			} else {
+				balloon.classList.add("explode");
+				setTimeout(function() {
+					balloon.classList.remove("explode");
+					size = 200;
+					color = "red";
+					balloon.style.backgroundColor = color;
+					balloon.style.width = size + "px";
+					balloon.style.height = size + "px";
+				}, 500);
+			}
+		});
+
+		balloon.addEventListener("mouseover", function() {
+			if (size > 200) {
+				size -= 5;
+
+				if (color == "red") {
+					color = "blue";
+				} else if (color == "blue") {
+					color = "green";
+				} else if (color == "green") {
+					color = "red";
+				}
+
+				balloon.style.backgroundColor = color;
+				balloon.style.width = size + "px";
+				balloon.style.height = size + "px";
+			}
+		});
+	</script>
+</body>
+</html>

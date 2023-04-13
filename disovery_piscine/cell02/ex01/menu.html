@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>SNCF Sandwich - Dropdown Menu</title>
+    <style>
+      /* Style for the dropdown menu container */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      /* Style for the dropdown menu button */
+      .dropdown button {
+        background-color: #f44336;
+        color: white;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        padding: 12px 24px;
+        margin: 0;
+        text-align: center;
+      }
+
+      /* Style for the dropdown menu items */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        background-color: #fff;
+        min-width: 160px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      }
+
+      /* Style for the dropdown menu item links */
+      .dropdown-content a {
+        color: #333;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      /* Style for the dropdown menu item links when hovered over */
+      .dropdown-content a:hover {
+        background-color: #f1f1f1;
+      }
+
+      /* Show the dropdown menu items when the dropdown button is clicked */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      /* Style for the dropdown menu items when the dropdown button is hovered over */
+      .dropdown:hover button {
+        background-color: #c62828;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>SNCF Sandwich - Dropdown Menu</h1>
+    <div class="dropdown">
+      <button>Choose Your Sandwich</button>
+      <div class="dropdown-content">
+        <a href="#">Ham and Cheese</a>
+        <a href="#">Salami and Tomato</a>
+        <a href="#">Turkey and Avocado</a>
+      </div>
+    </div>
+  </body>
+</html>

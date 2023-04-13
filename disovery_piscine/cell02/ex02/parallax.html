@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Parallax Example</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-image: url('first-image.jpg');
+			background-size: cover;
+			background-attachment: fixed;
+			background-position: center;
+		}
+
+		.message {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+			color: white;
+			font-size: 3em;
+			font-weight: bold;
+			text-shadow: 1px 1px 2px black;
+		}
+
+		.black-block {
+			background-color: black;
+			color: white;
+			padding: 5em;
+			text-align: center;
+		}
+
+		.second-image {
+			background-image: url('second-image.jpg');
+			background-size: cover;
+			background-attachment: fixed;
+			background-position: center;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.second-message {
+			color: white;
+			font-size: 3em;
+			font-weight: bold;
+			text-shadow: 1px 1px 2px black;
+		}
+	</style>
+</head>
+<body>
+	<div class="message">
+		<p>Welcome to our website!</p>
+	</div>
+	<div class="black-block">
+		<p>This is the black block section.</p>
+		<p>You can add any message you want here.</p>
+	</div>
+	<div class="second-image">
+		<div class="second-message">
+			<p>Thanks for scrolling down!</p>
+			<p>This is the second image section.</p>
+		</div>
+	</div>
+	<script>
+		window.addEventListener('scroll', function() {
+			var scrolled = window.pageYOffset;
+			var firstImage = document.querySelector('body');
+			var secondImage = document.querySelector('.second-image');
+			firstImage.style.backgroundPositionY = -(scrolled * 0.5) + 'px';
+			secondImage.style.backgroundPositionY = -(scrolled * 0.5) + 'px';
+		});
+	</script>
+</body>
+</html>

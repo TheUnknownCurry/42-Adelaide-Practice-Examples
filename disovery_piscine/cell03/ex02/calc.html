@@ -1,0 +1,51 @@
+function calculate() {
+    const leftInput = document.getElementById("left");
+    const operatorInput = document.getElementById("operator");
+    const rightInput = document.getElementById("right");
+    const left = parseInt(leftInput.value);
+    const right = parseInt(rightInput.value);
+    const operator = operatorInput.value;
+
+    if (isNaN(left) || isNaN(right)) {
+        alert("Error :(");
+        console.log("Error :(");
+        return;
+    }
+
+    let result;
+    switch (operator) {
+        case "+":
+            result = left + right;
+            break;
+        case "-":
+            result = left - right;
+            break;
+        case "*":
+            result = left * right;
+            break;
+        case "/":
+            if (right === 0) {
+                alert("It’s over 9000!");
+                console.log("It’s over 9000!");
+                return;
+            }
+            result = left / right;
+            break;
+        case "%":
+            if (right === 0) {
+                alert("It’s over 9000!");
+                console.log("It’s over 9000!");
+                return;
+            }
+            result = left % right;
+            break;
+    }
+
+    alert(result);
+    console.log(result);
+}
+
+setInterval(() => {
+    alert("Please, use me...");
+}, 30000);
+
