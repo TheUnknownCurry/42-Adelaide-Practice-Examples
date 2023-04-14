@@ -1,51 +1,56 @@
-function calculate() {
-    const leftInput = document.getElementById("left");
-    const operatorInput = document.getElementById("operator");
-    const rightInput = document.getElementById("right");
-    const left = parseInt(leftInput.value);
-    const right = parseInt(rightInput.value);
-    const operator = operatorInput.value;
-
-    if (isNaN(left) || isNaN(right)) {
-        alert("Error :(");
-        console.log("Error :(");
-        return;
-    }
-
-    let result;
-    switch (operator) {
-        case "+":
-            result = left + right;
-            break;
-        case "-":
-            result = left - right;
-            break;
-        case "*":
-            result = left * right;
-            break;
-        case "/":
-            if (right === 0) {
-                alert("It’s over 9000!");
-                console.log("It’s over 9000!");
-                return;
+<html>
+<head>
+    <title>Calc.html</title>
+</head>
+<body>
+    <h1>Basic Calculator</h1>
+    <label for="left">Left Operand:</label>
+    <input type="text" id="left" name="left" required>
+    <select id="operator" name="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <label for="right">Right Operand:</label>
+    <input type="text" id="right" name="right" required>
+    <input type="submit" value="Try me!" onclick="calculate()">
+    <script>
+        function calculate() {
+            let left = document.getElementById("left").value;
+            let operator = document.getElementById("operator").value;
+            let right = document.getElementById("right").value;
+            if (left < 0 || right < 0 || left % 1 !== 0 || right % 1 !== 0) {
+                alert("Error :(");
+            } else if (operator === "/" && right == 0 || operator === "%" && right == 0) {
+                alert("It's over 9000!");
+            } else {
+                let result;
+                switch(operator) {
+                    case "+":
+                        result = parseInt(left) + parseInt(right);
+                        break;
+                    case "-":
+                        result = parseInt(left) - parseInt(right);
+                        break;
+                    case "*":
+                        result = parseInt(left) * parseInt(right);
+                        break;
+                    case "/":
+                        result = parseInt(left) / parseInt(right);
+                        break;
+                    case "%":
+                        result = parseInt(left) % parseInt(right);
+                        break;
+                }
+                console.log(result);
+                alert(result);
             }
-            result = left / right;
-            break;
-        case "%":
-            if (right === 0) {
-                alert("It’s over 9000!");
-                console.log("It’s over 9000!");
-                return;
-            }
-            result = left % right;
-            break;
-    }
-
-    alert(result);
-    console.log(result);
-}
-
-setInterval(() => {
-    alert("Please, use me...");
-}, 30000);
-
+        }
+        setInterval(function() {
+            alert("Please, use me...");
+        }, 30000);
+    </script>
+</body>
+</html>
